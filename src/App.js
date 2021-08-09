@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Add_User from './Component/Add_User';
+import GetData from './Component/GetData';
+import Update_data from './Component/Update_data';
+import View from './Component/View';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlignLast: "center", textDecoration: "underline" }}>
+      <h1>Crud Operation Through React-Redux</h1>
+      <Switch>
+        <Route exact path="/" component={GetData} />
+        <Route path="/add_user" component={Add_User} />
+        <Route path="/updatePost/:id" component={Update_data} />
+        <Route path="/view/:id" component={View} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
